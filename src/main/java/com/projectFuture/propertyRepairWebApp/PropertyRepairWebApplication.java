@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PropertyRepairWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PropertyRepairWebAppApplication.class, args);
+		SpringApplication.run(PropertyRepairWebApplication.class, args);
 	}
 
 }
