@@ -17,11 +17,11 @@ import java.sql.Date;
 public class Repair {
 
     @Id
-    @Column(name="repair_id",nullable = false)
+    @Column(name="repairID",nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="repair_date",nullable = false)
+    @Column(name="repairDate",nullable = false)
     private Date date;
 
     @Enumerated(EnumType.STRING)
@@ -35,14 +35,14 @@ public class Repair {
     private String address;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name="user_id",referencedColumnName = "user_id")
+    @JoinColumn(name="userID",referencedColumnName = "userID")
     private User user;
 
     @Column(name="description",nullable = false)
     private String description;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="repair_type",nullable = false)
+    @Column(name="repairType",nullable = false)
     private RepairType repairType;
 
 
