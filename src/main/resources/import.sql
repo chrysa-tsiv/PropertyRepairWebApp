@@ -15,13 +15,13 @@ INSERT INTO USERS (firstName,lastName,vat,address,phone,email,password,userType,
 INSERT INTO USERS (firstName,lastName,vat,address,phone,email,password,userType,propertyType) VALUES ('Sakis', 'Sakakis','121212127','Larisa','0123456789','sakis@sakakis.com','mrsakakis','USER','BLOCK_OF_FLATS');
 INSERT INTO USERS (firstName,lastName,vat,address,phone,email,password,userType,propertyType) VALUES ('Lakis', 'Lalakis','121212128','Thessaloniki','0123456789','lakis@lalakis.com','mrlalakis','USER','MAISONETTE');
 INSERT INTO USERS (firstName,lastName,vat,address,phone,email,password,userType,propertyType) VALUES ('Makis', 'Makakis','121212129','Patra','0123456789','makis@makakis.com','mrmakakis','ADMIN','DETACHED_HOUSE');
-D
+
 INSERT INTO REPAIRS (repairDate,status,cost,address,description,repairType,userID ) VALUES ('2020-12-03', 'ONGOING','18000','Crete','This is a test value','PAINTING','1');
-INSERT INTO REPAIRS (repairDate,status,cost,address,description,repairType,userID ) VALUES ('2020-12-03', 'FINISHED','9000','Athens','This is a test value','FRAMES','2');
+INSERT INTO REPAIRS (repairDate,status,cost,address,description,repairType,userID ) VALUES ('2020-12-03', 'COMPLETED','9000','Athens','This is a test value','FRAMES','2');
 INSERT INTO REPAIRS (repairDate,status,cost,address,description,repairType,userID ) VALUES ('2020-12-03', 'ONGOING','18000','Larisa','This is a test value','PAINTING','4');
-INSERT INTO REPAIRS (repairDate,status,cost,address,description,repairType,userID ) VALUES ('2020-12-03', 'FINISHED','18000','Athens','This is a test value','PAINTING','2');
+INSERT INTO REPAIRS (repairDate,status,cost,address,description,repairType,userID ) VALUES ('2020-12-03', 'COMPLETED','18000','Athens','This is a test value','PAINTING','2');
 INSERT INTO REPAIRS (repairDate,status,cost,address,description,repairType,userID) VALUES ('2020-12-03', 'ONGOING','9000','Patra','This is a test value','PAINTING','5');
---REPAIRS with default statDus of PENDING
+--REPAIRS with default status of PENDING
 INSERT INTO REPAIRS (repairDate,cost,address,description,repairType,userID) VALUES ('2020-12-03','12000','Crete','This is a test value','PLUMBING','1');
 INSERT INTO REPAIRS (repairDate,cost,address,description,repairType,userID) VALUES ('2020-12-03','12000','Patra','This is a test value','PLUMBING','5');
 INSERT INTO REPAIRS (repairDate,cost,address,description,repairType,userID) VALUES ('2020-12-03','9000','Thessaloniki','This is a test value','PLUMBING','3');
