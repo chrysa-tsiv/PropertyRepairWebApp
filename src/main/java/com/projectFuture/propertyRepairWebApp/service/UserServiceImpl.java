@@ -14,8 +14,8 @@ public class UserServiceImpl implements UserService{
     private UserRepository userRepository;
 
     @Override
-    public Optional<User> findUser(Long id) {
-        return userRepository.findById(id);
+    public User findUser(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -24,12 +24,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Optional<User> findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 
     @Override
-    public Optional<User> findUserByVat(String vat) {
-        return userRepository.findByVat(vat);
+    public User findUserByVat(String vat) {
+        return userRepository.findByVat(vat).orElse(null);
     }
 }

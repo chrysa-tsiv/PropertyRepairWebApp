@@ -7,11 +7,11 @@ import java.util.Optional;
 
 public interface UserService {
 
-    Optional<User> findUser(Long id);
+    User findUser(Long id);
 
     List<User> getAllUsers();
 
-    Optional<User> findUserByEmail(String email);
+    User findUserByEmail(String email);
 
-    Optional<User> findUserByVat(String vat);
+    User findUserByVat(String vat);
 }
