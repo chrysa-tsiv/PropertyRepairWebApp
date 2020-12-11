@@ -83,6 +83,7 @@
                     <th scope="col">ADDRESS</th>
                     <th scope="col">EMAIL</th>
                     <th scope="col">EDIT</th>
+                    <th scope="col">VIEW REPAIRS</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -94,6 +95,7 @@
                         <td>${user.address}</td>
                         <td>${user.email}</td>
                         <td><a href="/admin/${user.id}/edit"><span data-feather="tool"></span></a></td>
+                        <td><a href="/admin/${user.id}/viewRepairs"><span data-feather="list"></span></a></td>
                     </tr>
                 </tbody>
             </table>
