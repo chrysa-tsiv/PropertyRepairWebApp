@@ -1,12 +1,14 @@
 package com.projectFuture.propertyRepairWebApp.service;
 
 import com.projectFuture.propertyRepairWebApp.domain.User;
+import com.projectFuture.propertyRepairWebApp.enums.PropertyType;
+import com.projectFuture.propertyRepairWebApp.enums.UserType;
+import com.projectFuture.propertyRepairWebApp.forms.UserForm;
 import com.projectFuture.propertyRepairWebApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -31,5 +33,25 @@ public class UserServiceImpl implements UserService{
     @Override
     public User findUserByVat(String vat) {
         return userRepository.findByVat(vat).orElse(null);
+    }
+
+    @Override
+    public int insertUser(UserForm userform) {
+        try {
+            User newUser = new User();
+            newUser.setVat(userform.getVat());
+            newUser.setFirstName(userform.getFirstName());
+            newUser.setLastName(userform.getLastName());
+            newUser.setAddress(userform.getAddress());
+            newUser.setPhone(userform.getPhone());
+            newUser.setEmail(userform.getEmail());
+            newUser.setPassword(userform.getPassword());
+            newUser.setUserType(UserType.USER);
+            newUser.setPropertyType(PropertyType.getPropertyTypeFromString(userform.getPropertyType()));
+            userRepository.save(newUser);
+            return 1;
+        }catch (IllegalArgumentException ex){
+            return -1;
+        }
     }
 }
