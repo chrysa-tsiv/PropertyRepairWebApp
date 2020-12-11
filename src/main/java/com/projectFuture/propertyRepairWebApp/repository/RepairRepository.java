@@ -15,4 +15,5 @@ public interface RepairRepository extends JpaRepository<Repair,Long> {
     List<Repair> findAllByStatus(Status status);
 
     List<Repair> findAllByRepairType(RepairType repairType);
+
 }

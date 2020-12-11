@@ -29,7 +29,7 @@ public class Repair {
     private Status status;
 
     @Column(name="cost",nullable = false)
-    private double cost;
+    private Double cost;
 
     @Column(name="address",length = 120,nullable = false)
     private String address;
