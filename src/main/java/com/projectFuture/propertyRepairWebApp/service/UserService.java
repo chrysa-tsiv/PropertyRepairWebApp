@@ -1,6 +1,7 @@
 package com.projectFuture.propertyRepairWebApp.service;
 
 import com.projectFuture.propertyRepairWebApp.domain.User;
+import com.projectFuture.propertyRepairWebApp.enums.UserType;
 import com.projectFuture.propertyRepairWebApp.forms.UserForm;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface UserService {
     User findUserByVat(String vat);
 
     int insertUser(UserForm userform);
+
+    List<User> getAllUsersByUserType(UserType userType);
 }

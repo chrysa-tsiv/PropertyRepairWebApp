@@ -19,7 +19,7 @@
 <body>
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/admin/2">Property Web Application</a>
+    <a class="navbar-brand" href="/admin/home">Property Web Application</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/2">Admin Panel </a>
+                <a class="nav-link" href="/admin/home">Admin Panel </a>
             </li>
             <li>
                 <div class="dropdown active">
@@ -37,8 +37,8 @@
                         Owners <span class="sr-only">(current)</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" href="/admin/create">Create Owner</a>
-                        <a class="dropdown-item" href="/admin/search">Search Owner</a>
+                        <a class="dropdown-item" href="/admin/create-user">Create Owner</a>
+                        <a class="dropdown-item" href="/admin/search-user">Search Owner</a>
                     </div>
                 </div>
             </li>
@@ -51,14 +51,14 @@
 <!-- breadcrumb -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/admin/2">Admin Panel</a></li>
+        <li class="breadcrumb-item"><a href="/admin/home">Admin Panel</a></li>
         <li class="breadcrumb-item active" aria-current="page">Create User</li>
     </ol>
 </nav>
 
 <!-- form -->
 <div style="margin-top:1%;margin-left:2%;margin-right:2%;">
-    <form action="/admin/create" name="userForm" method="post">
+    <form action="/admin/create-user" name="userForm" method="post">
         <div class="form-group" >
             <label for="vat_create">VAT</label>
             <input type="text" class="form-control" id="vat_create" placeholder="Enter VAT" name="vat">

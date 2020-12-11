@@ -22,7 +22,7 @@ public class Repair {
     private long id;
 
     @Column(name="repairDate",nullable = false)
-    private Date date;
+    private Date repairDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name="status",nullable = false,columnDefinition ="varchar(255) default 'PENDING'" )

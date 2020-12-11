@@ -26,7 +26,7 @@ public class CreateUserController {
     private static final String USER_FORM = "userForm";
 
     //returns the user creation page of admin, passing the enum values on the model.
-    @GetMapping(value = "/admin/create")
+    @GetMapping(value = "/admin/create-user")
     public String createUser(Model model) {
         model.addAttribute(USER_FORM, new UserForm());
         model.addAttribute("propertyTypes", Arrays.asList(PropertyType.values()));

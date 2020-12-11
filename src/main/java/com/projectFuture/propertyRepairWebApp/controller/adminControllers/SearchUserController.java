@@ -17,7 +17,7 @@ public class SearchUserController {
     private RepairService repairService;
 
     //returns searchUser page
-    @RequestMapping(value = "/admin/search")
+    @RequestMapping(value = "/admin/search-user")
     public String searchUser(Model model, @RequestParam(value = "vat", required = false) String vat, @RequestParam(value = "email", required = false) String email) {
         if (vat != null && email != null) {
             if (!vat.isEmpty()) {
