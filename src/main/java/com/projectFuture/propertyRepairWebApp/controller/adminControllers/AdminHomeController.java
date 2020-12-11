@@ -16,7 +16,7 @@ public class AdminHomeController {
     @Autowired
     private RepairService repairService;
 
-    //Gets the path variable id to find the admin, gets all the repairs with status ONGOING and appends them on the 1st table.
+    //Gets all the repairs with status ONGOING and appends them on the 1st table.
     //Then it gets all users and appends them to the 2nd table of the page adminHome
     @GetMapping({"/admin/home"})
     public String adminHome(Model model){

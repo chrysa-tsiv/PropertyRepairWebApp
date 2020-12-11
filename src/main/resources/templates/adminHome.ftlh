@@ -80,7 +80,7 @@
             <td>${repair.address}</td>
             <td>${repair.description}</td>
             <td><a href="/admin/${repair.id}/edit-repair"><span data-feather="tool"></span></a></td>
-            <td><a href="/admin/${repair.id}/viewUser"><span data-feather="list"></span></a></td>
+            <td><a href="/admin/${repair.id}/view-user"><span data-feather="list"></span></a></td>
         </tr>
         </#list>
     </tbody>
@@ -115,7 +115,7 @@
             <td>${user.address}</td>
             <td>${user.email}</td>
             <td><a href="/admin/${user.id}/edit-user"><span data-feather="tool"></span></a></td>
-            <td><a href="/admin/${user.id}/viewRepairs"><span data-feather="list"></span></a></td>
+            <td><a href="/admin/${user.id}/view-repairs"><span data-feather="list"></span></a></td>
         </tr>
         </#list>
     </tbody>
