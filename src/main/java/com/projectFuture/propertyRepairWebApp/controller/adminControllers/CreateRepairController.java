@@ -24,8 +24,8 @@ public class CreateRepairController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/admin/user/{id}/repair/Create")
-    public String createNewRepair(Model model, @PathVariable("id") Long id){
+    @GetMapping("/admin/user/{id}/repair/create")
+    public String createRepair(Model model, @PathVariable("id") Long id){
 
         model.addAttribute(REPAIR_FORM,new RepairForm());
         return "createRepair";
