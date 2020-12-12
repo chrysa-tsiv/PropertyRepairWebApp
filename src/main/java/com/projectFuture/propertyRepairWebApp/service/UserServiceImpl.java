@@ -60,4 +60,9 @@ public class UserServiceImpl implements UserService{
     public List<User> getAllUsersByUserType(UserType userType) {
         return userRepository.findAllByUserType(userType).orElse(new ArrayList<>());
     }
+
+    @Override
+    public User findUserByVatAndEmail(String vat, String email) {
+        return userRepository.findByVatAndEmail(vat,email).orElse(null);
+    }
 }

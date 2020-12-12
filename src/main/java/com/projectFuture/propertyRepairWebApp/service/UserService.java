@@ -20,4 +20,6 @@ public interface UserService {
     int insertUser(UserForm userform);
 
     List<User> getAllUsersByUserType(UserType userType);
+
+    User findUserByVatAndEmail(String vat,String email);
 }

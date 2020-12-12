@@ -102,7 +102,9 @@
         </div>
         <script>feather.replace()</script>
     <#else>
-        <h2>No user found with this value</h2>
+        <div class="alert alert-danger" role="alert">
+            No user found with this <#if vat?has_content && email?has_content>vat,email combination<#elseif email?has_content>email<#else> vat</#if>
+        </div>
     </#if>
 </#if>
 </body>
