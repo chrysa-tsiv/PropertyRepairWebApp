@@ -36,7 +36,7 @@ public class CreateUserController {
 
     //gets the input values from user form and calls the user service to insert the new user to the database
     //Depending if insert failed or succeed, inserts an appropriate message to redirectAttribute and redirects to admin home page.
-    @PostMapping(value = "/admin/create")
+    @PostMapping(value = "/admin/create-user")
     public String createUser(@ModelAttribute(USER_FORM) UserForm userform, RedirectAttributes redirectAttributes) {
         if (userService.insertUser(userform) == 1) {
             redirectAttributes.addFlashAttribute("rdrMsg", "User added successfully.");

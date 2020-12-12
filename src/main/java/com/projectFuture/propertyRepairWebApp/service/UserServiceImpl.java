@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService{
             newUser.setPropertyType(PropertyType.getPropertyTypeFromString(userform.getPropertyType()));
             userRepository.save(newUser);
             return 1;
-        }catch (IllegalArgumentException ex){
+        }catch (Exception ex){
             return -1;
         }
     }
