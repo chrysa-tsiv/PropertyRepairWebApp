@@ -4,6 +4,7 @@ import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.PropertyType;
 import com.projectFuture.propertyRepairWebApp.enums.UserType;
 import com.projectFuture.propertyRepairWebApp.forms.UserForm;
+import com.projectFuture.propertyRepairWebApp.mappers.UserFormToUserMapper;
 import com.projectFuture.propertyRepairWebApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserFormToUserMapper userFormToUserMapper;
 
     @Override
     public User findUser(Long id) {
@@ -37,19 +40,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int insertUser(UserForm userform) {
+    public int insertUser(UserForm userForm) {
         try {
-            User newUser = new User();
-            newUser.setVat(userform.getVat());
-            newUser.setFirstName(userform.getFirstName());
-            newUser.setLastName(userform.getLastName());
-            newUser.setAddress(userform.getAddress());
-            newUser.setPhone(userform.getPhone());
-            newUser.setEmail(userform.getEmail());
-            newUser.setPassword(userform.getPassword());
-            newUser.setUserType(UserType.USER);
-            newUser.setPropertyType(PropertyType.getPropertyTypeFromString(userform.getPropertyType()));
-            userRepository.save(newUser);
+            userRepository.save(userFormToUserMapper.map(userForm));
             return 1;
         }catch (Exception ex){
             return -1;
@@ -59,5 +52,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> getAllUsersByUserType(UserType userType) {
         return userRepository.findAllByUserType(userType).orElse(new ArrayList<>());
+    }
+
+    @Override
+    public User findUserByVatAndEmail(String vat, String email) {
+        return userRepository.findByVatAndEmail(vat,email).orElse(null);
     }
 }
