@@ -58,4 +58,5 @@ public class UserServiceImpl implements UserService{
     public User findUserByVatAndEmail(String vat, String email) {
         return userRepository.findByVatAndEmail(vat,email).orElse(null);
     }
+
 }
