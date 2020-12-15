@@ -4,6 +4,7 @@ import com.projectFuture.propertyRepairWebApp.domain.Repair;
 import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.forms.RepairForm;
 import com.projectFuture.propertyRepairWebApp.model.RepairModel;
+import com.projectFuture.propertyRepairWebApp.model.UserModel;
 import com.projectFuture.propertyRepairWebApp.service.RepairService;
 import com.projectFuture.propertyRepairWebApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,8 @@ public class CreateRepairController {
             model.addAttribute(REPAIR_FORM,repairForm);
             return "createRepair";
         }
-
-        User currentUser = this.userService.findUser(id);
-        if (this.repairService.createRepair(repairForm, currentUser)) {
+        UserModel currentUser = userService.findUser(id).get();
+        if (this.repairService.createRepair(repairForm,currentUser)) {
                 redirectAttributes.addFlashAttribute("rdrMsg", "Repair added successfully.");
         }
         else {

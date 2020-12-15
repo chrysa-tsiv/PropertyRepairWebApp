@@ -1,14 +1,15 @@
 package com.projectFuture.propertyRepairWebApp.service;
 
 import com.projectFuture.propertyRepairWebApp.domain.Repair;
-import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.RepairType;
 import com.projectFuture.propertyRepairWebApp.enums.Status;
 import com.projectFuture.propertyRepairWebApp.forms.RepairForm;
 import com.projectFuture.propertyRepairWebApp.mappers.RepairModelToRepairMapper;
 import com.projectFuture.propertyRepairWebApp.mappers.RepairToRepairModelMapper;
 import com.projectFuture.propertyRepairWebApp.mappers.RepairsFormToRepairMapper;
+import com.projectFuture.propertyRepairWebApp.mappers.UserModelToUserMapper;
 import com.projectFuture.propertyRepairWebApp.model.RepairModel;
+import com.projectFuture.propertyRepairWebApp.model.UserModel;
 import com.projectFuture.propertyRepairWebApp.repository.RepairRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,9 @@ public class RepairServiceImpl implements RepairService{
 
     @Autowired
     private RepairModelToRepairMapper repairModelToRepairMapper;
+
+    @Autowired
+    private UserModelToUserMapper userModelToUserMapper;
 
     @Override
     public List<RepairModel> getAllRepairs() {
@@ -69,10 +73,10 @@ public class RepairServiceImpl implements RepairService{
     }
 
     @Override
-    public boolean createRepair(RepairForm repairForm, User currentUser){
+    public boolean createRepair(RepairForm repairForm,UserModel currentUser){
         try {
             Repair repair = this.repairsFormToRepairMapper.map(repairForm);
-            repair.setUser(currentUser);
+            repair.setUser(userModelToUserMapper.map(currentUser));
             repairRepository.save(repair);
         }catch (Exception e){
             e.printStackTrace();

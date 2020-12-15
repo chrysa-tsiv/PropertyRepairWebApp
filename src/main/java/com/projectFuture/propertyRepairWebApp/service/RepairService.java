@@ -1,15 +1,12 @@
 package com.projectFuture.propertyRepairWebApp.service;
 
-
-import com.projectFuture.propertyRepairWebApp.domain.Repair;
-import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.RepairType;
 import com.projectFuture.propertyRepairWebApp.enums.Status;
 import com.projectFuture.propertyRepairWebApp.forms.RepairForm;
 import com.projectFuture.propertyRepairWebApp.model.RepairModel;
+import com.projectFuture.propertyRepairWebApp.model.UserModel;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface RepairService {
 
@@ -22,7 +19,7 @@ public interface RepairService {
 
     List<RepairModel> getRepairsByRepairType(RepairType repairType);
 
-    boolean createRepair(RepairForm repairForm,User user);
+    boolean createRepair(RepairForm repairForm, UserModel user);
 
     boolean udpateRepair(RepairModel repairModel);
 
