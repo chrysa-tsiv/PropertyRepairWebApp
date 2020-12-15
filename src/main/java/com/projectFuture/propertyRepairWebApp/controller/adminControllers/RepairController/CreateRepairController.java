@@ -1,4 +1,4 @@
-package com.projectFuture.propertyRepairWebApp.controller.adminControllers;
+package com.projectFuture.propertyRepairWebApp.controller.adminControllers.RepairController;
 
 import com.projectFuture.propertyRepairWebApp.domain.Repair;
 import com.projectFuture.propertyRepairWebApp.domain.User;

@@ -1,4 +1,4 @@
-package com.projectFuture.propertyRepairWebApp.controller.adminControllers;
+package com.projectFuture.propertyRepairWebApp.controller.adminControllers.RepairController;
 
 import com.projectFuture.propertyRepairWebApp.enums.RepairType;
 import com.projectFuture.propertyRepairWebApp.enums.Status;

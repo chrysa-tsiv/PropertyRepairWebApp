@@ -1,4 +1,4 @@
-package com.projectFuture.propertyRepairWebApp.controller.adminControllers;
+package com.projectFuture.propertyRepairWebApp.controller.adminControllers.UserController;
 
 import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.PropertyType;
