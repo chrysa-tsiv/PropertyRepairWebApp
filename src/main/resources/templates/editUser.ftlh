@@ -64,6 +64,13 @@
                             <input type="hidden" name="id" value="${user.id}">
 
                             <div class="mb-3">
+                                <label for="firstName">VAT</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="vat" name="vat" value="${user.vat}">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="firstName">First Name</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="firstName" name="firstName" value="${user.firstName}">
@@ -78,9 +85,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="firstName">VAT</label>
+                                <label for="firstName">Address</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="vat" name="vat" value="${user.vat}">
+                                    <input type="text" class="form-control" id="address" name="address" value="${user.address}">
                                 </div>
                             </div>
 
@@ -92,16 +99,22 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="firstName">Address</label>
+                                <label for="firstName">Email</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="address" name="address" value="${user.address}">
+                                    <input type="text" class="form-control" id="email" name="email" value="${user.email}">
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <label for="firstName">Email</label>
+                                <label for="category">Property Type</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="email" name="email" value="${user.email}">
+                                    <select class="custom-select d-block w-100" id="propertyType" name="propertyType">
+                                        <#if propertyTypes??>
+                                            <#list propertyTypes as propertyType>
+                                                <option value="${propertyType}"<#if user.propertyType == propertyType> selected</#if>>${propertyType}</option>
+                                            </#list>
+                                        </#if>
+                                    </select>
                                 </div>
                             </div>
 
