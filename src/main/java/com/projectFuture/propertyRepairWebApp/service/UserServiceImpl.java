@@ -47,26 +47,31 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int insertUser(UserForm userForm) {
+    public boolean insertUser(UserForm userForm) {
         try {
             userRepository.save(userFormToUserMapper.map(userForm));
-            return 1;
+            return true;
         }catch (Exception ex){
-            return -1;
+            return false;
         }
     }
 
     @Override
-    public void updateUser(UserModel userModel) {
-        User originalUser = userRepository.findById(userModel.getId()).get();
-        originalUser.setFirstName(userModel.getFirstName());
-        originalUser.setLastName(userModel.getLastName());
-        originalUser.setVat(userModel.getVat());
-        originalUser.setPhone(userModel.getPhone());
-        originalUser.setAddress(userModel.getAddress());
-        originalUser.setEmail(userModel.getEmail());
-        originalUser.setPropertyType(userModel.getPropertyType());
-        userRepository.save(originalUser);
+    public boolean updateUser(UserModel userModel) {
+        try{
+            User originalUser = userRepository.findById(userModel.getId()).get();
+            originalUser.setFirstName(userModel.getFirstName());
+            originalUser.setLastName(userModel.getLastName());
+            originalUser.setVat(userModel.getVat());
+            originalUser.setPhone(userModel.getPhone());
+            originalUser.setAddress(userModel.getAddress());
+            originalUser.setEmail(userModel.getEmail());
+            originalUser.setPropertyType(userModel.getPropertyType());
+            userRepository.save(originalUser);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     @Override

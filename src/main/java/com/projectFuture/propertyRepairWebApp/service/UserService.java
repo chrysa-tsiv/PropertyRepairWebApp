@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
-    
+
     Optional<UserModel> findUser(Long id);
 
     List<User> getAllUsers();
@@ -18,9 +18,9 @@ public interface UserService {
 
     User findUserByVat(String vat);
 
-    int insertUser(UserForm userform);
+    boolean insertUser(UserForm userform);
 
-    void updateUser(UserModel bookModel);
+    boolean updateUser(UserModel bookModel);
 
     List<User> getAllUsersByUserType(UserType userType);
 

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.logging.Logger;
 
@@ -31,8 +32,12 @@ public class EditUserController {
 
 
     @PostMapping(value = "/admin/user/edit")
-    public String editBook(UserModel userModel) {
-        userService.updateUser(userModel);
+    public String editBook(UserModel userModel,RedirectAttributes redirectAttributes) {
+        if(userService.updateUser(userModel)){
+            redirectAttributes.addFlashAttribute("rdrMsg", "User updated successfully.");
+        }else{
+            redirectAttributes.addFlashAttribute("rdrMsg", "Could not update user.");
+        }
         return "redirect:/admin/home";
     }
 

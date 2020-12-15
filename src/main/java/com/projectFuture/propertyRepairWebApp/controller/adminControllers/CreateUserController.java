@@ -45,7 +45,7 @@ public class CreateUserController {
             model.addAttribute("propertyTypes", Arrays.asList(PropertyType.values()));
             return "createUser";
         }
-        if (userService.insertUser(userform) == 1) {
+        if (userService.insertUser(userform)) {
             redirectAttributes.addFlashAttribute("rdrMsg", "User added successfully.");
         } else {
             redirectAttributes.addFlashAttribute("rdrMsg", "Something went wrong. User could not be added to the database. ");
