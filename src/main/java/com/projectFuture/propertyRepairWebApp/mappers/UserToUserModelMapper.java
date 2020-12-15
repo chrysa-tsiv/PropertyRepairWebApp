@@ -15,7 +15,6 @@ public class UserToUserModelMapper {
         userModel.setAddress(user.getAddress());
         userModel.setPhone(user.getPhone());
         userModel.setEmail(user.getEmail());
-        userModel.setPassword(user.getPassword());
         userModel.setUserType(user.getUserType());
         userModel.setPropertyType(user.getPropertyType());
         userModel.setId(user.getId());

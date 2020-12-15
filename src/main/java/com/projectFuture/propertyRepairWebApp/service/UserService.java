@@ -12,17 +12,17 @@ public interface UserService {
 
     Optional<UserModel> findUser(Long id);
 
-    List<User> getAllUsers();
+    List<UserModel> getAllUsers();
 
-    User findUserByEmail(String email);
+    UserModel findUserByEmail(String email);
 
-    User findUserByVat(String vat);
+    UserModel findUserByVat(String vat);
 
     boolean insertUser(UserForm userform);
 
     boolean updateUser(UserModel bookModel);
 
-    List<User> getAllUsersByUserType(UserType userType);
+    List<UserModel> getAllUsersByUserType(UserType userType);
 
-    User findUserByVatAndEmail(String vat,String email);
+    UserModel findUserByVatAndEmail(String vat,String email);
 }

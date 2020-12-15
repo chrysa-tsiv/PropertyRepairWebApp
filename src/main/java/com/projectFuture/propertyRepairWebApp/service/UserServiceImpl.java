@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -28,22 +29,32 @@ public class UserServiceImpl implements UserService{
     public Optional<UserModel> findUser(Long id) {
         return userRepository
                 .findById(id)
-                .map(book -> userToUserModelMapper.map(book));
+                .map(user -> userToUserModelMapper.map(user));
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserModel> getAllUsers() {
+        return userRepository
+                .findAll()
+                .stream()
+                .map(user -> userToUserModelMapper.map(user))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email).orElse(null);
+    public UserModel findUserByEmail(String email) {
+        return userRepository
+                .findByEmail(email)
+                .map(user -> userToUserModelMapper.map(user))
+                .orElse(null);
     }
 
     @Override
-    public User findUserByVat(String vat) {
-        return userRepository.findByVat(vat).orElse(null);
+    public UserModel findUserByVat(String vat) {
+        return userRepository
+                .findByVat(vat)
+                .map(user -> userToUserModelMapper.map(user))
+                .orElse(null);
     }
 
     @Override
@@ -75,12 +86,20 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getAllUsersByUserType(UserType userType) {
-        return userRepository.findAllByUserType(userType).orElse(new ArrayList<>());
+    public List<UserModel> getAllUsersByUserType(UserType userType) {
+        return userRepository
+                .findAllByUserType(userType)
+                .get()
+                .stream()
+                .map(user -> userToUserModelMapper.map(user))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public User findUserByVatAndEmail(String vat, String email) {
-        return userRepository.findByVatAndEmail(vat,email).orElse(null);
+    public UserModel findUserByVatAndEmail(String vat, String email) {
+        return userRepository
+                .findByVatAndEmail(vat,email)
+                .map(user -> userToUserModelMapper.map(user))
+                .orElse(null);
     }
 }
