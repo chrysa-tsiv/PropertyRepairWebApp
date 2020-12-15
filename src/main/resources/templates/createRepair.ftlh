@@ -22,8 +22,9 @@
 </head>
 
 <body>
+<!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/admin/2">Property Web Application</a>
+    <a class="navbar-brand" href="/admin/home">Property Web Application</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +33,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/2">Admin Panel</a>
+                <a class="nav-link" href="/admin/home">Admin Panel </a>
             </li>
             <li>
                 <div class="dropdown active">
@@ -41,8 +42,8 @@
                         Owners <span class="sr-only">(current)</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" href="/admin/create">Create Owner</a>
-                        <a class="dropdown-item" href="/admin/search">Search Owner</a>
+                        <a class="dropdown-item" href="/admin/create-user">Create Owner</a>
+                        <a class="dropdown-item" href="/admin/search-user">Search Owner</a>
                     </div>
                 </div>
             </li>
@@ -60,34 +61,77 @@
     </ol>
 </nav>
 
+<#import "/spring.ftl" as spring />
+
 <!-- table that is only visible when vat or email has value and user has also value.Displays the result user of the search -->
-<form action="/createRepair${id}"method="post"/>
+<form action="/admin/${id}/create-repair"method="post"/>
     <div class="form-group m-3 col-6">
         <label>Date</label>
-        <input type="date" class="form-control" name="date" id="date">
+        <@spring.bind "repairForm.repairDate"/>
+        <input type="date" class="form-control" name="repairDate" id="repairDate" >
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
     </div>
     <div class="form-group m-3 col-6">
         <label>Status</label>
+        <@spring.bind "repairForm.status"/>
         <select class="form-control" name="status" id="status">
             <option>PENDING</option>
             <option>ONGOING</option>
             <option>COMPLETED</option>
         </select>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
     </div>
     <div class="form-group m-3 col-6">
         <label>cost</label>
+        <@spring.bind "repairForm.cost"/>
         <input type="text" class="form-control" name="cost" id="cost">
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
     </div>
     <div class="form-group m-3 col-6">
         <label>address</label>
+        <@spring.bind "repairForm.address"/>
         <input type="text" class="form-control" name="address" id="address">
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
     </div>
     <div class="form-group m-3 col-6">
         <label>description</label>
+        <@spring.bind "repairForm.description"/>
         <input type="text" class="form-control" name="description" id="description">
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
     </div>
     <div class="form-group m-3 col-6">
         <label>RepairType</label>
+        <@spring.bind "repairForm.repairType"/>
         <select class="form-control" name="repairType" id="repairType">
             <option>PAINTING</option>
             <option>INSULATION</option>
@@ -95,6 +139,13 @@
             <option>PLUMBING</option>
             <option>ELECTRICAL_WORKS</option>
         </select>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
     </div>
 <input type="submit" name="create" />
 

@@ -11,7 +11,7 @@ public class RepairModelToRepairMapper {
 
         repair.setAddress(repairModel.getAddress());
         repair.setCost(Double.parseDouble(repairModel.getCost()));
-        repair.setRepairDate(repairModel.getDate());
+        repair.setRepairDate(repairModel.getRepairDate());
         repair.setDescription(repairModel.getDescription());
         repair.setStatus(repairModel.getStatus());
 

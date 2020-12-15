@@ -13,17 +13,18 @@ import java.util.Optional;
 
 public interface RepairService {
 
-    Optional<Repair> findRepair(Long id);
 
-    List<Repair> getAllRepairs();
+    List<RepairModel> getAllRepairs();
 
-    List<Repair> getRepairsByUserId(Long id);
+    List<RepairModel> getRepairsByUserId(Long id);
 
-    List<Repair> getRepairsByStatus(Status status);
+    List<RepairModel> getRepairsByStatus(Status status);
 
-    List<Repair> getRepairsByRepairType(RepairType repairType);
+    List<RepairModel> getRepairsByRepairType(RepairType repairType);
 
-    Repair createRepair(RepairForm repairForm,User user);
+    boolean createRepair(RepairForm repairForm,User user);
 
-    Repair udpateRepair(RepairModel repairModel);
+    boolean udpateRepair(RepairModel repairModel);
+
+    RepairModel findRepairModelById(Long id);
 }

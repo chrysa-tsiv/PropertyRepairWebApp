@@ -26,7 +26,7 @@ public class RepairModel {
     private long id;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate date;
+    private LocalDate repairDate;
 
     private Status status;
 

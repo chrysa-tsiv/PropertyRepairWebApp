@@ -9,7 +9,7 @@ public class RepairsFormToRepairMapper {
 
     public Repair map(RepairForm repairForm){
         Repair repair = new Repair();
-        repair.setRepairDate(repairForm.getDate());
+        repair.setRepairDate(repairForm.getRepairDate());
         repair.setAddress(repairForm.getAddress());
         repair.setCost(repairForm.getCost());
         repair.setDescription(repairForm.getDescription());

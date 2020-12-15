@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
             RepairForm repairForm = new RepairForm();
 
-            repairForm.setDate(repair.getRepairDate());
+            repairForm.setRepairDate(repair.getRepairDate());
             repairForm.setAddress(repair.getAddress());
             repairForm.setCost(repair.getCost());
             repairForm.setDescription(repair.getDescription());

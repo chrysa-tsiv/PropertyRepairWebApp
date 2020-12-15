@@ -27,8 +27,9 @@
 </head>
 
 <body>
+<!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/admin/2">Property Web Application</a>
+    <a class="navbar-brand" href="/admin/home">Property Web Application</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -37,7 +38,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/2">Admin Panel</a>
+                <a class="nav-link" href="/admin/home">Admin Panel </a>
             </li>
             <li>
                 <div class="dropdown active">
@@ -46,8 +47,8 @@
                         Owners <span class="sr-only">(current)</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <a class="dropdown-item" href="/admin/create">Create Owner</a>
-                        <a class="dropdown-item" href="/admin/search">Search Owner</a>
+                        <a class="dropdown-item" href="/admin/create-user">Create Owner</a>
+                        <a class="dropdown-item" href="/admin/search-user">Search Owner</a>
                     </div>
                 </div>
             </li>
@@ -66,7 +67,7 @@
 </nav>
 
 <!-- table that is only visible when vat or email has value and user has also value.Displays the result user of the search -->
-<form action="/admin/user/repair/updateRepair"method="post"/>
+<form action="/admin/edit-repair"method="post"/>
 <#setting date_format="MM/dd/yyyy">
 <div class="form-group m-3 col-6">
     <input type="hidden" name="id" value="${repairModel.id}">
@@ -78,7 +79,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text"><span data-feather="calendar"></span></span>
         </div>
-        <input type="date" class="form-control" id="datepicker" name="date" value="${repairModel.date}">
+        <input type="date" class="form-control" id="datepicker" name="repairDate" value="${repairModel.repairDate}">
     </div>
 </div>
 

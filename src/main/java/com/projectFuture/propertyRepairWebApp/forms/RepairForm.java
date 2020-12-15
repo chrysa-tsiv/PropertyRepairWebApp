@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.sql.Date;
 import java.time.LocalDate;
 @Data
@@ -26,7 +24,8 @@ public class RepairForm {
     private static final String COST_PATTERN = "[0-9.]*$";
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate date;
+//    @NotNull(message = "{repair.repairDate.not.null}")
+    private LocalDate repairDate;
 
     private Status status;
 
