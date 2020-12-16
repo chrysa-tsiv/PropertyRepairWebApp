@@ -6,6 +6,8 @@ import com.projectFuture.propertyRepairWebApp.forms.RepairForm;
 import com.projectFuture.propertyRepairWebApp.model.RepairModel;
 import com.projectFuture.propertyRepairWebApp.model.UserModel;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public interface RepairService {
@@ -20,6 +22,8 @@ public interface RepairService {
     List<RepairModel> getRepairsByRepairType(RepairType repairType);
 
     boolean createRepair(RepairForm repairForm, UserModel user);
+
+    RepairModel findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate);
 
     boolean udpateRepair(RepairModel repairModel);
 

@@ -6,6 +6,8 @@ import com.projectFuture.propertyRepairWebApp.enums.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -15,4 +17,6 @@ public interface RepairRepository extends JpaRepository<Repair,Long> {
     List<Repair> findAllByStatus(Status status);
 
     List<Repair> findAllByRepairType(RepairType repairType);
+
+    List<Repair> findByRepairDateBetween(LocalDate fromRepairDate, LocalDate toRepairDate);
 }

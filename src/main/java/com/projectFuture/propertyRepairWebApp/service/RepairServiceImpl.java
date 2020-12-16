@@ -14,6 +14,8 @@ import com.projectFuture.propertyRepairWebApp.repository.RepairRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -93,6 +95,13 @@ public class RepairServiceImpl implements RepairService{
     }
 
     @Override
+    public RepairModel findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate){
+        List<Repair> repair = repairRepository.findByRepairDateBetween(fromRepairDate, toRepairDate);
+        RepairModel repairModel = repairToRepairModelMapper.mapToRepairModel((Repair) repair);
+        return repairModel;
+    }
+
+    @Override
     public boolean udpateRepair(RepairModel repairModel){
         try {
             Repair repair = repairRepository.findById(repairModel.getId()).get();
@@ -106,5 +115,7 @@ public class RepairServiceImpl implements RepairService{
         }
         return true;
     }
+
+
 }
 
