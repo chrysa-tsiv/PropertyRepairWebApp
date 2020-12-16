@@ -1,5 +1,6 @@
 package com.projectFuture.propertyRepairWebApp.model;
 
+import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.RepairType;
 import com.projectFuture.propertyRepairWebApp.enums.Status;
 import lombok.AllArgsConstructor;
@@ -43,5 +44,8 @@ public class RepairModel {
     private String description;
 
     private RepairType repairType;
+
+    //extra value for user since 1.8
+    private User user;
 
 }

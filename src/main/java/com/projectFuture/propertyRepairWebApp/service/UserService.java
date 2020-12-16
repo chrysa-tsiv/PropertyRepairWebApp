@@ -24,5 +24,8 @@ public interface UserService {
 
     List<UserModel> getAllUsersByUserType(UserType userType);
 
-    UserModel findUserByVatAndEmail(String vat,String email);
+    UserModel findUserByVatAndEmail(String vat, String email);
+
+    public boolean deleteById(long id);
+
 }

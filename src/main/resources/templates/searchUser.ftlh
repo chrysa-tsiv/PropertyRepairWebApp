@@ -73,8 +73,8 @@
 <#if vat?has_content || email?has_content>
     <#if user?has_content>
         <div class="users-table">
-            <table class="table">
-                <thead>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
                 <tr>
                     <th scope="col">FIRST NAME</th>
                     <th scope="col">LAST NAME</th>
@@ -82,8 +82,8 @@
                     <th scope="col">PHONE</th>
                     <th scope="col">ADDRESS</th>
                     <th scope="col">EMAIL</th>
-                    <th scope="col">EDIT</th>
-                    <th scope="col">VIEW REPAIRS</th>
+                    <th scope="col">VIEW/ADD REPAIRS</th>
+                    <th scope="col">EDIT/DELETE</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -94,8 +94,18 @@
                         <td>${user.phone}</td>
                         <td>${user.address}</td>
                         <td>${user.email}</td>
-                        <td><a href="/admin/${user.id}/edit-user"><span data-feather="tool"></span></a></td>
-                        <td><a href="/admin/${user.id}/view-repairs"><span data-feather="list"></span></a></td>
+                        <td>
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item list-group-item-primary"><a href="/admin/${user.id}/view-user-info"><span data-feather="list"></span></a></li>
+                                <li class="list-group-item list-group-item-success"><a href="/admin/${user.id}/create-repair"><span data-feather="plus"></span></a></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item list-group-item-warning"><a href="/admin/${user.id}/edit-user"><span data-feather="tool"></span></a></li>
+                                <li class="list-group-item list-group-item-danger"><a href="/admin/${user.id}/delete-user"><span data-feather="x"></span></a></li>
+                            </ul>
+                        </td>
                     </tr>
                 </tbody>
             </table>
