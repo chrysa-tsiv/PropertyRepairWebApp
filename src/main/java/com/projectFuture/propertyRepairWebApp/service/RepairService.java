@@ -23,7 +23,9 @@ public interface RepairService {
 
     boolean createRepair(RepairForm repairForm, UserModel user);
 
-    RepairModel findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate);
+    List<RepairModel> findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate);
+
+//    List<RepairModel> findByVatAndDateRange(String vat, LocalDate fromRepairDate, LocalDate toRepairDate);
 
     boolean udpateRepair(RepairModel repairModel);
 

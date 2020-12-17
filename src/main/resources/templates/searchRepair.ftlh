@@ -75,7 +75,7 @@
     </form>
 </div>
 <!-- table that is only visible when vat or email has value and repair has also value.Displays the result repair of the search -->
-    <#if vat?has_content>
+    <#if vat?has_content || fromRepairDate?has_content || toRepairDate?has_content>
         <div class="repairs-table">
             <table class="table">
                 <thead>

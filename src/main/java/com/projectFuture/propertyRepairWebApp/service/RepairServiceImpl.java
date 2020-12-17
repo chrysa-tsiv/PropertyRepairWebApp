@@ -95,11 +95,22 @@ public class RepairServiceImpl implements RepairService{
     }
 
     @Override
-    public RepairModel findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate){
-        List<Repair> repair = repairRepository.findByRepairDateBetween(fromRepairDate, toRepairDate);
-        RepairModel repairModel = repairToRepairModelMapper.mapToRepairModel((Repair) repair);
-        return repairModel;
+    public List<RepairModel> findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate) {
+        return repairRepository
+                .findByRepairDateBetween(fromRepairDate, toRepairDate)
+                .stream()
+                .map(repair -> repairToRepairModelMapper.mapToRepairModel(repair))
+                .collect(Collectors.toList());
     }
+
+//    @Override
+//    public List<RepairModel> findByVatAndDateRange(String vat, LocalDate fromRepairDate, LocalDate toRepairDate) {
+//        return repairRepository
+//                .findByVatAndDateRange(vat, fromRepairDate, toRepairDate)
+//                .stream()
+//                .map(repair -> repairToRepairModelMapper.mapToRepairModel(repair))
+//                .collect(Collectors.toList());
+//    }
 
     @Override
     public boolean udpateRepair(RepairModel repairModel){

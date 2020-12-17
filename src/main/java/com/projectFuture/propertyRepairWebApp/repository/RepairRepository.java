@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -19,4 +20,7 @@ public interface RepairRepository extends JpaRepository<Repair,Long> {
     List<Repair> findAllByRepairType(RepairType repairType);
 
     List<Repair> findByRepairDateBetween(LocalDate fromRepairDate, LocalDate toRepairDate);
+
+//    List<Repair> findByVatAndDateRange(String vat, LocalDate fromRepairDate, LocalDate toRepairDate);
+
 }

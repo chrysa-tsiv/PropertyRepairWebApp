@@ -28,6 +28,12 @@ public class RepairModel {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate repairDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fromRepairDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate toRepairDate;
+
     private Status status;
 
     private String cost;
