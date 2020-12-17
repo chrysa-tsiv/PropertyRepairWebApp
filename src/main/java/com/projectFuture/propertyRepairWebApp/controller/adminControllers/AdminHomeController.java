@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class AdminHomeController {
@@ -23,5 +24,13 @@ public class AdminHomeController {
         model.addAttribute("repairs",repairService.getRepairsByStatus(Status.ONGOING));
         model.addAttribute("users",userService.getAllUsersByUserType(UserType.USER));
         return "adminHome";
+    }
+
+    //User-info controller
+    @GetMapping({"/admin/{id}/view-user-info"})
+    public String viewUserInfo(Model model, @PathVariable long id){
+        model.addAttribute("user",userService.findUser(id).get());
+        model.addAttribute("repairs",repairService.getRepairsByUserId(id));
+        return "viewUserInfo";
     }
 }
