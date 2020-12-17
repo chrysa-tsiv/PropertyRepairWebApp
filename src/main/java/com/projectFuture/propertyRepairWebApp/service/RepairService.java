@@ -5,7 +5,7 @@ import com.projectFuture.propertyRepairWebApp.enums.Status;
 import com.projectFuture.propertyRepairWebApp.forms.RepairForm;
 import com.projectFuture.propertyRepairWebApp.model.RepairModel;
 import com.projectFuture.propertyRepairWebApp.model.UserModel;
-
+import java.time.LocalDate;
 import java.util.List;
 
 public interface RepairService {
@@ -20,6 +20,10 @@ public interface RepairService {
     List<RepairModel> getRepairsByRepairType(RepairType repairType);
 
     boolean createRepair(RepairForm repairForm, UserModel user);
+
+    List<RepairModel> findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate);
+
+    //    List<RepairModel> findByVatAndDateRange(String vat, LocalDate fromRepairDate, LocalDate toRepairDate);
 
     boolean updateRepair(RepairModel repairModel);
 
