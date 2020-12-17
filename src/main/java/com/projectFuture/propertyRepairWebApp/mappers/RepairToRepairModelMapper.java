@@ -14,8 +14,8 @@ public class RepairToRepairModelMapper {
         repairModel.setRepairDate(repair.getRepairDate());
         repairModel.setCost(repair.getCost().toString());
         repairModel.setDescription(repair.getDescription());
-        repairModel.setStatus(repair.getStatus());
-        repairModel.setRepairType(repair.getRepairType());
+        repairModel.setStatus(repair.getStatus().toString());
+        repairModel.setRepairType(repair.getRepairType().toString());
         return repairModel;
     }
 

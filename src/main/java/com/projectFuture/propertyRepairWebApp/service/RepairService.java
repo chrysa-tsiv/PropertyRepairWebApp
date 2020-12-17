@@ -21,7 +21,7 @@ public interface RepairService {
 
     boolean createRepair(RepairForm repairForm, UserModel user);
 
-    boolean udpateRepair(RepairModel repairModel);
+    boolean updateRepair(RepairModel repairModel);
 
     RepairModel findRepairModelById(Long id);
 }
