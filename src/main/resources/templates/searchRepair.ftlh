@@ -61,15 +61,15 @@
     <form action="/admin/search-repair" method="get">
         <div class="form-group">
             <label for="vat_search">VAT</label>
-            <input type="text" class="form-control" id="vat_search" placeholder="VAT" name="vat" value="${vat!""}">
+            <input type="text" class="form-control" id="vat_search" placeholder="VAT" name="vat" value="${vat!''}">
         </div>
         <div class="form-group m-3 col-6">
             <label>From Date</label>
-            <input type="date" class="form-control" name="fromRepairDate" id="fromRepairDate" >
+            <input type="date" class="form-control" name="fromRepairDate" id="fromRepairDate" value="${fromRepairDate!''}">
         </div>
         <div class="form-group m-3 col-6">
             <label>To Date</label>
-            <input type="date" class="form-control" name="toRepairDate" id="ToRepairDate" >
+            <input type="date" class="form-control" name="toRepairDate" id="toRepairDate" value="${toRepairDate!''}">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
