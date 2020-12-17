@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -17,19 +18,26 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class RepairModel {
 
-    private static final String COST_PATTERN = "[0-9.]*$";
     private static final int ADDRESS_MIN_SIZE = 4;
-    private static final String ADDRESS_PATTERN = "^[a-zA-Z ( )]*$";
+    private static final String ADDRESS_PATTERN = "^[a-zA-Z]*$";
     private static final int DESCRIPTION_MIN_SIZE = 4;
-    private static final int DESCRIPTION_MAX_SIZE = 250;
+    private static final int DESCRIPTION_MAX_SIZE = 254;
+    private static final String COST_PATTERN = "\\d+(\\.\\d+)*";
+    public static final String STATUS_PATTERN= "(PENDING|ONGOING|COMPLETED)";
+    public static final String REPAIRTYPE_PATTERN= "(PAINTING|INSULATION|FRAMES|PLUMBING|ELECTRICAL_WORKS)";
+
 
     private long id;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "{repair.repairDate.not.null}")
     private LocalDate repairDate;
 
-    private Status status;
+    @Pattern(regexp = STATUS_PATTERN , message = "{repair.status.pattern.invalid}")
+    private String status;
 
+    @Pattern(regexp = COST_PATTERN, message = "{repair.cost.pattern.invalid}")
+    @NotNull(message = "{repair.cost.not.null}")
     private String cost;
 
     @Pattern(regexp = ADDRESS_PATTERN, message = "{repair.address.pattern.invalid}")
@@ -37,11 +45,11 @@ public class RepairModel {
     @NotEmpty(message = "{repair.address.not.null}")
     private String address;
 
-    @Pattern(regexp = ADDRESS_PATTERN, message = "{repair.description.pattern.invalid}")
     @Size(min = DESCRIPTION_MIN_SIZE,max= DESCRIPTION_MAX_SIZE,  message = "{repair.description.size.invalid}")
     @NotEmpty(message = "{repair.description.not.null}")
     private String description;
 
-    private RepairType repairType;
+    @Pattern(regexp = REPAIRTYPE_PATTERN , message = "{repair.repairType.pattern.invalid}")
+    private String repairType;
 
 }

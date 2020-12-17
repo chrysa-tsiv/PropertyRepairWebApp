@@ -1,7 +1,10 @@
 package com.projectFuture.propertyRepairWebApp.mappers;
 
 import com.projectFuture.propertyRepairWebApp.domain.Repair;
+import com.projectFuture.propertyRepairWebApp.enums.RepairType;
+import com.projectFuture.propertyRepairWebApp.enums.Status;
 import com.projectFuture.propertyRepairWebApp.forms.RepairForm;
+import com.projectFuture.propertyRepairWebApp.service.RepairService;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,10 +14,10 @@ public class RepairsFormToRepairMapper {
         Repair repair = new Repair();
         repair.setRepairDate(repairForm.getRepairDate());
         repair.setAddress(repairForm.getAddress());
-        repair.setCost(repairForm.getCost());
+        repair.setCost(Double.parseDouble(repairForm.getCost()));
         repair.setDescription(repairForm.getDescription());
-        repair.setRepairType(repairForm.getRepairType());
-        repair.setStatus(repairForm.getStatus());
+        repair.setRepairType(RepairType.valueOf(repairForm.getRepairType()));
+        repair.setStatus(Status.valueOf(repairForm.getStatus()));
         return repair;
     }
 

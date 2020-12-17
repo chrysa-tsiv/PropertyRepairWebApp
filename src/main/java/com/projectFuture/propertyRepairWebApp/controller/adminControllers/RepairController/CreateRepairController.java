@@ -40,8 +40,8 @@ public class CreateRepairController {
     }
 
     @PostMapping("/admin/{id}/create-repair")
-    public String createRepair(Model model,@Valid @ModelAttribute(REPAIR_FORM) RepairForm repairForm, @PathVariable("id") Long id,
-                               RedirectAttributes redirectAttributes, BindingResult bindingResult) {
+    public String createRepair(Model model,@ModelAttribute(REPAIR_FORM) @Valid RepairForm repairForm,BindingResult bindingResult,
+                               @PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
         if(bindingResult.hasErrors()){
             model.addAttribute(VALIDATION_ERRORS,"an error has occured");
             model.addAttribute(REPAIR_FORM,repairForm);

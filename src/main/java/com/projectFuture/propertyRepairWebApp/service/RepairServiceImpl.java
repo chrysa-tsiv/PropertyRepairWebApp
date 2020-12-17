@@ -93,7 +93,7 @@ public class RepairServiceImpl implements RepairService{
     }
 
     @Override
-    public boolean udpateRepair(RepairModel repairModel){
+    public boolean updateRepair(RepairModel repairModel){
         try {
             Repair repair = repairRepository.findById(repairModel.getId()).get();
             repair = repairModelToRepairMapper.mapRepairModelToRepair(repairModel, repair);
