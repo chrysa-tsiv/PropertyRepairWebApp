@@ -48,14 +48,45 @@
     </div>
 </nav>
 
-<h2>${rdrMsg!""}</h2>
-
 <div class="welcome-msg">
-    <h2>Hello Admin</h2>
+    <h2>User ${user.firstName} ${user.lastName}</h2>
 </div>
 
-<h1>ONGOING REPAIRS</h1>
+<h1>USER INFO</h1>
+<ul class="list-group list-group-horizontal ">
+    <li class="list-group-item" style="border:none"><a href="/admin/${user.id}/edit-user" role="button" class="btn btn-warning">EDIT</a></li>
+    <li class="list-group-item" style="border:none"><a href="/admin/${user.id}/delete-user" role="button" class="btn btn-danger">DELETE</a></li>
+</ul>
+<div class="user-table">
+    <table class="table table-striped table-bordered ">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">FIRST NAME</th>
+            <th scope="col">LAST NAME</th>
+            <th scope="col">VAT</th>
+            <th scope="col">PHONE</th>
+            <th scope="col">ADDRESS</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">PROPERTY TYPE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-id="${user.id}">
+            <td>${user.firstName}</td>
+            <td>${user.lastName}</td>
+            <td>${user.vat}</td>
+            <td>${user.phone}</td>
+            <td>${user.address}</td>
+            <td>${user.email}</td>
+            <td>${user.propertyType}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
 
+<div>
+<h1>REPAIRS</h1>
+<a href="/admin/${user.id}/create-repair" role="button" class="btn btn-success">CREATE REPAIR</a>
 <div class="repairs-table">
     <table class="table table-striped table-bordered">
         <thead class="thead-dark">
@@ -93,51 +124,8 @@
     </tbody>
 </table>
 </div>
-
-<h1>USERS</h1>
-
-<div class="users-table">
-    <table class="table table-striped table-bordered">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">FIRST NAME</th>
-            <th scope="col">LAST NAME</th>
-            <th scope="col">VAT</th>
-            <th scope="col">PHONE</th>
-            <th scope="col">ADDRESS</th>
-            <th scope="col">EMAIL</th>
-            <th scope="col">VIEW/ADD REPAIRS</th>
-            <th scope="col">EDIT/DELETE</th>
-        </tr>
-        </thead>
-        <tbody>
-        <#list users as user>
-        <tr data-id="${user.id}">
-            <th scope="row">${user?index+1}</th>
-            <td>${user.firstName}</td>
-            <td>${user.lastName}</td>
-            <td>${user.vat}</td>
-            <td>${user.phone}</td>
-            <td>${user.address}</td>
-            <td>${user.email}</td>
-            <td>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item list-group-item-primary"><a href="/admin/${user.id}/view-user-info"><span data-feather="list"></span></a></li>
-                    <li class="list-group-item list-group-item-success"><a href="/admin/${user.id}/create-repair"><span data-feather="plus"></span></a></li>
-                </ul>
-            </td>
-            <td>
-                <ul class="list-group list-group-horizontal">
-                    <li class="list-group-item list-group-item-warning"><a href="/admin/${user.id}/edit-user"><span data-feather="tool"></span></a></li>
-                    <li class="list-group-item list-group-item-danger"><a href="/admin/${user.id}/delete-user"><span data-feather="x"></span></a></li>
-                </ul>
-            </td>
-        </tr>
-        </#list>
-    </tbody>
-</table>
 </div>
+
 
 <script>
   feather.replace()

@@ -1,5 +1,6 @@
 package com.projectFuture.propertyRepairWebApp.model;
 
+import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.RepairType;
 import com.projectFuture.propertyRepairWebApp.enums.Status;
 import lombok.AllArgsConstructor;
@@ -51,5 +52,8 @@ public class RepairModel {
 
     @Pattern(regexp = REPAIRTYPE_PATTERN , message = "{repair.repairType.pattern.invalid}")
     private String repairType;
+
+    //extra value for user since 1.8
+    private User user;
 
 }

@@ -103,4 +103,14 @@ public class UserServiceImpl implements UserService{
                 .orElse(null);
     }
 
+    @Override
+    public boolean deleteById(long id) {
+        try{
+            userRepository.deleteById(id);
+            return true;
+        }catch(Exception ex){
+            return false;
+        }
+    }
+
 }
