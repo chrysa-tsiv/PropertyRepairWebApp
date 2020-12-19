@@ -19,10 +19,8 @@ public class UserHomeController {
 
     @GetMapping({"/user/home"})
     public String userHome(Model model){
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        UserModel user = userService.findUserByEmail(username);
-
-        model.addAttribute("repairs",repairService.getRepairsByUserId(user.getId()));
+        UserModel loggedInUser = (UserModel) model.getAttribute("loggedInUser");
+        model.addAttribute("repairs",repairService.getRepairsByUserId(loggedInUser.getId()));
         return "userHome";
     }
 
