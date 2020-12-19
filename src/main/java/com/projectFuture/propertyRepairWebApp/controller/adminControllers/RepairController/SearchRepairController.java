@@ -34,7 +34,9 @@ public class SearchRepairController {
         if (vat != null && !vat.isEmpty()) {
             if(fromRepairDate.isEmpty() && toRepairDate.isEmpty()) {
                 UserModel user = userService.findUserByVat(vat);
-                model.addAttribute("repairs", repairService.getRepairsByUserId(user.getId()));
+                if(user!=null) {
+                    model.addAttribute("repairs", repairService.getRepairsByUserId(user.getId()));
+                }
                 model.addAttribute("vat", vat);
             }
             else if (!vat.isEmpty() && fromRepairDate!=null && toRepairDate!=null){
@@ -42,7 +44,10 @@ public class SearchRepairController {
                 List<RepairModel> repairList = repairService.findByDateRange(LocalDate.parse(fromRepairDate), LocalDate.parse(toRepairDate));
                 List<RepairModel> repairs = new ArrayList<RepairModel>();
                 for(RepairModel repair : repairList) {
-                    if(repair.getUser().getId() == user.getId()){
+                    if(user==null){
+                        break;
+                    }
+                    else if(repair.getUser().getId() == user.getId()){
                         repairs.add(repair);
                     }
                 }
