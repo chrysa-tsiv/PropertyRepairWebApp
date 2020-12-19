@@ -26,7 +26,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline my-2 my-lg-0 ml-auto p-2" >
+            <form action="/logout" class="form-inline my-2 my-lg-0 ml-auto p-2" >
                 <button class="btn btn-outline-danger my-2 my-sm-0 text-uppercase" type="submit">Logout</button>
             </form>
         </div>
