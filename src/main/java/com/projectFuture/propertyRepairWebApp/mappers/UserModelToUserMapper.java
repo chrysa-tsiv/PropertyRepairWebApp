@@ -1,6 +1,8 @@
 package com.projectFuture.propertyRepairWebApp.mappers;
 
 import com.projectFuture.propertyRepairWebApp.domain.User;
+import com.projectFuture.propertyRepairWebApp.enums.PropertyType;
+import com.projectFuture.propertyRepairWebApp.enums.UserType;
 import com.projectFuture.propertyRepairWebApp.model.UserModel;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +17,8 @@ public class UserModelToUserMapper {
         user.setAddress(userModel.getAddress());
         user.setPhone(userModel.getPhone());
         user.setEmail(userModel.getEmail());
-        user.setUserType(userModel.getUserType());
-        user.setPropertyType(userModel.getPropertyType());
+        user.setUserType(UserType.valueOf(userModel.getUserType()));
+        user.setPropertyType(PropertyType.valueOf(userModel.getPropertyType()));
         user.setId(userModel.getId());
         return user;
     }
