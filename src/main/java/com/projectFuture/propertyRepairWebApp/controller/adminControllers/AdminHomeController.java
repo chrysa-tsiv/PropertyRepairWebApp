@@ -2,6 +2,7 @@ package com.projectFuture.propertyRepairWebApp.controller.adminControllers;
 
 import com.projectFuture.propertyRepairWebApp.enums.Status;
 import com.projectFuture.propertyRepairWebApp.enums.UserType;
+import com.projectFuture.propertyRepairWebApp.model.UserModel;
 import com.projectFuture.propertyRepairWebApp.service.RepairService;
 import com.projectFuture.propertyRepairWebApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
