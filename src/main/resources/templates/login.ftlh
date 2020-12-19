@@ -34,9 +34,16 @@
 
               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
 
+                  <#if RequestParameters.error??>
+                  <div class="alert alert-danger align-self-center" role="alert">
+                      Not valid credentials!
+                  </div>
+              </#if>
+
             </form>
         </div>
     </div>
+
   </body>
 </html>
 
