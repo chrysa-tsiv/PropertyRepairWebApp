@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("admin")
 public class SearchUserController {
 
     @Autowired
@@ -17,7 +18,7 @@ public class SearchUserController {
     private RepairService repairService;
 
     //returns searchUser page
-    @RequestMapping(value = "/admin/search-user")
+    @RequestMapping(value = "/search-user")
     public String searchUser(Model model,
                              @RequestParam(value = "vat", required = false) String vat,
                              @RequestParam(value = "email", required = false) String email) {

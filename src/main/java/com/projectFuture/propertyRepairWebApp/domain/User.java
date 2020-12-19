@@ -17,6 +17,7 @@ import java.util.List;
 public class User {
 
     public static final int NAME_MAX_LENGTH = 50;
+    public static final int PASSWORD_MAX_LENGTH = 200;
 
     @Id
     @Column(name = "userID", nullable = false)
@@ -43,7 +44,7 @@ public class User {
     @Column(name = "email", length = NAME_MAX_LENGTH, nullable = false)
     private String email;
 
-    @Column(name = "password", length = NAME_MAX_LENGTH, nullable = false)
+    @Column(name = "password", length = PASSWORD_MAX_LENGTH, nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)

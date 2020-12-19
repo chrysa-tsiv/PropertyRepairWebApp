@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 @Controller
+@RequestMapping("admin")
 public class SearchRepairController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class SearchRepairController {
     @Autowired
     private RepairService repairService;
 
-    @RequestMapping(value = "/admin/search-repair")
+    @RequestMapping(value = "/search-repair")
     public String searchRepair(Model model,
                                @RequestParam(value = "vat", required = false) String vat,
                                @RequestParam(value = "fromRepairDate", required = false) String fromRepairDate,

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping("admin")
 public class UpdateRepairController {
 
     private static final String VALIDATION_ERRORS="validationError";
@@ -27,7 +28,7 @@ public class UpdateRepairController {
     @Autowired
     private RepairService repairService;
 
-    @GetMapping(value = "/admin/{repairId}/edit-repair")
+    @GetMapping(value = "/{repairId}/edit-repair")
     public String editRepair(@PathVariable("repairId") Long repairId, Model model) {
         RepairModel repairModel = repairService.findRepairModelById(repairId);
         model.addAttribute(REPAIR_MODEL, repairModel);
@@ -36,7 +37,7 @@ public class UpdateRepairController {
         return "editRepair";
     }
 
-    @PostMapping(value = "/admin/edit-repair")
+    @PostMapping(value = "/edit-repair")
     public String editRepair(@ModelAttribute(REPAIR_MODEL)  @Valid RepairModel repairModel, BindingResult bindingResult,
                              RedirectAttributes redirectAttributes,Model model) {
         if(bindingResult.hasErrors()){
