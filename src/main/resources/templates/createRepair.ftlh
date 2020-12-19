@@ -64,9 +64,9 @@
 <#import "/spring.ftl" as spring />
 
 <!-- table that is only visible when vat or email has value and user has also value.Displays the result user of the search -->
-<form action="/admin/${id}/create-repair"method="post"/>
+<form action="/admin/${id}/create-repair" method="post" id="create-repair" />
     <div class="form-group m-3 col-6">
-        <label>Date</label>
+        <label for="repairDate">Date</label>
         <@spring.bind "repairForm.repairDate"/>
         <input type="date" class="form-control" name="repairDate" id="repairDate" >
         <#if spring.status.error>
@@ -78,7 +78,7 @@
         </#if>
     </div>
     <div class="form-group m-3 col-6">
-        <label>Status</label>
+        <label for="status">Status</label>
         <@spring.bind "repairForm.status"/>
         <select class="form-control" name="status" id="status">
             <option>PENDING</option>
@@ -94,7 +94,7 @@
         </#if>
     </div>
     <div class="form-group m-3 col-6">
-        <label>cost</label>
+        <label for="cost">cost</label>
         <@spring.bind "repairForm.cost"/>
         <input type="text" class="form-control" name="cost" id="cost">
         <#if spring.status.error>
@@ -106,7 +106,7 @@
         </#if>
     </div>
     <div class="form-group m-3 col-6">
-        <label>address</label>
+        <label for="address">address</label>
         <@spring.bind "repairForm.address"/>
         <input type="text" class="form-control" name="address" id="address">
         <#if spring.status.error>
@@ -118,7 +118,7 @@
         </#if>
     </div>
     <div class="form-group m-3 col-6">
-        <label>description</label>
+        <label for="description">description</label>
         <@spring.bind "repairForm.description"/>
         <input type="text" class="form-control" name="description" id="description">
         <#if spring.status.error>
@@ -130,7 +130,7 @@
         </#if>
     </div>
     <div class="form-group m-3 col-6">
-        <label>RepairType</label>
+        <label for="repairType">RepairType</label>
         <@spring.bind "repairForm.repairType"/>
         <select class="form-control" name="repairType" id="repairType">
             <option>PAINTING</option>
