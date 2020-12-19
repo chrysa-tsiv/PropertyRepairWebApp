@@ -94,6 +94,16 @@ public class RepairServiceImpl implements RepairService{
     }
 
     @Override
+    public boolean deleteById(long id) {
+        try{
+            repairRepository.deleteById(id);
+            return true;
+        }catch(Exception ex){
+            return false;
+        }
+    }
+
+    @Override
     public List<RepairModel> findByDateRange(LocalDate fromRepairDate, LocalDate toRepairDate) {
         return repairRepository
                 .findByRepairDateBetween(fromRepairDate, toRepairDate)

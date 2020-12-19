@@ -28,4 +28,7 @@ public interface RepairService {
     boolean updateRepair(RepairModel repairModel);
 
     RepairModel findRepairModelById(Long id);
+
+    public boolean deleteById(long id);
+
 }
