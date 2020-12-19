@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService{
             originalUser.setPhone(userModel.getPhone());
             originalUser.setAddress(userModel.getAddress());
             originalUser.setEmail(userModel.getEmail());
-            originalUser.setPropertyType(userModel.getPropertyType());
+            originalUser.setPropertyType(PropertyType.valueOf(userModel.getPropertyType()));
             userRepository.save(originalUser);
             return true;
         }catch (Exception e){
