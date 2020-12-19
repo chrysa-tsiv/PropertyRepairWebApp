@@ -33,7 +33,7 @@
     </nav>
 
     <div class="welcome-msg">
-        <h2>Hello (user name)</h2>
+        <h2>Hello ${loggedInUser.firstName} ${loggedInUser.lastName}</h2>
     </div>
 
     <div class="repairs-table">
@@ -47,8 +47,6 @@
                     <th scope="col">COST</th>
                     <th scope="col">ADDRESS</th>
                     <th scope="col">DESCRIPTION</th>
-                    <th scope="col">EDIT</th>
-                    <th scope="col">DELETE</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,8 +59,6 @@
                         <td>${repair.cost}</td>
                         <td>${repair.address}</td>
                         <td>${repair.description}</td>
-                        <td><a href="/admin/${repair.id}/edit-repair"><span data-feather="tool"></span></a></td>
-                        <td><a href="/admin/${repair.id}/delete-repair"><span data-feather="trash-2"></span></a></td>
                     </tr>
                 </#list>
             </tbody>

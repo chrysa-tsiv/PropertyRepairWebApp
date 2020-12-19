@@ -51,7 +51,7 @@
 <h2>${rdrMsg!""}</h2>
 
 <div class="welcome-msg">
-    <h2>Hello Admin</h2>
+    <h2>Hello ${loggedInUser.firstName} ${loggedInUser.lastName}</h2>
 </div>
 
 <h1>ONGOING REPAIRS</h1>
