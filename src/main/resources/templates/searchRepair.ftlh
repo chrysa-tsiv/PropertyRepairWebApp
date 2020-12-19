@@ -76,39 +76,52 @@
 </div>
 <!-- table that is only visible when vat or email has value and repair has also value.Displays the result repair of the search -->
     <#if vat?has_content || fromRepairDate?has_content || toRepairDate?has_content>
-        <div class="repairs-table">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">DATE</th>
-                        <th scope="col">STATUS</th>
-                        <th scope="col">TYPE</th>
-                        <th scope="col">COST</th>
-                        <th scope="col">ADDRESS</th>
-                        <th scope="col">DESCRIPTION</th>
-                        <th scope="col">EDIT</th>
-                        <th scope="col">VIEW USER</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <#list repairs as repair>
-                            <tr>
-                                <th scope="row">${repair?index+1}</th>
-                                <td>${repair.repairDate}</td>
-                                <td>${repair.status}</td>
-                                <td>${repair.repairType}</td>
-                                <td>${repair.cost}</td>
-                                <td>${repair.address}</td>
-                                <td>${repair.description}</td>
-                                <td><a href="/admin/${repair.id}/edit-repair"><span data-feather="tool"></span></a></td>
-                                <td><a href="/admin/${repair.id}/view-user"><span data-feather="list"></span></a></td>
-                            </tr>
-                    </#list>
-                </tbody>
-            </table>
-        </div>
-        <script>feather.replace()</script>
+
+            <div class="repairs-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">DATE</th>
+                            <th scope="col">STATUS</th>
+                            <th scope="col">TYPE</th>
+                            <th scope="col">COST</th>
+                            <th scope="col">ADDRESS</th>
+                            <th scope="col">DESCRIPTION</th>
+                            <th scope="col">EDIT/DELETE</th>
+                            <th scope="col">VIEW USER</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <#list repairs as repair>
+                                <tr>
+                                    <th scope="row">${repair?index+1}</th>
+                                    <td>${repair.repairDate}</td>
+                                    <td>${repair.status}</td>
+                                    <td>${repair.repairType}</td>
+                                    <td>${repair.cost}</td>
+                                    <td>${repair.address}</td>
+                                    <td>${repair.description}</td>
+                                    <td>
+                                        <ul class="list-group list-group-horizontal">
+                                            <li class="list-group-item list-group-item-warning"><a href="/admin/${repair.id}/edit-repair"><span data-feather="tool"></span></a></li>
+                                            <li class="list-group-item list-group-item-danger"><a href="/admin/${repair.id}/delete-repair"><span data-feather="x"></span></a></li>
+                                        </ul>
+                                    </td>
+
+                                        <td>
+                                            <ul class="list-group list-group-horizontal">
+                                                <li class="list-group-item list-group-item-primary"><a href="/admin/${repair.user.id}/view-user-info"><span data-feather="list"></span></a></li>
+                                            </ul>
+                                        </td>
+
+                                </tr>
+                        </#list>
+                    </tbody>
+                </table>
+            </div>
+            <script>feather.replace()</script>
+
     </#if>
 
 </body>
