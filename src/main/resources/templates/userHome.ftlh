@@ -24,9 +24,10 @@
         <h2>Hello ${loggedInUser.firstName} ${loggedInUser.lastName}</h2>
     </div>
 
+    <h2>My Repairs</h2>
     <div class="repairs-table">
-        <table class="table">
-            <thead>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">DATE</th>

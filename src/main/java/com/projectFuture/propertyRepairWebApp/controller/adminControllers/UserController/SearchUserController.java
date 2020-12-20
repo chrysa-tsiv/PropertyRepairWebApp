@@ -1,6 +1,5 @@
 package com.projectFuture.propertyRepairWebApp.controller.adminControllers.UserController;
 
-import com.projectFuture.propertyRepairWebApp.service.RepairService;
 import com.projectFuture.propertyRepairWebApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +13,6 @@ public class SearchUserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private RepairService repairService;
 
     //returns searchUser page
     @RequestMapping(value = "/search-user")

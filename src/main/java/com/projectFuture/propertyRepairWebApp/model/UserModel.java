@@ -1,11 +1,8 @@
 package com.projectFuture.propertyRepairWebApp.model;
 
-import com.projectFuture.propertyRepairWebApp.enums.PropertyType;
-import com.projectFuture.propertyRepairWebApp.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;

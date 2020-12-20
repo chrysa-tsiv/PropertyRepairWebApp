@@ -1,10 +1,7 @@
 package com.projectFuture.propertyRepairWebApp.controller.adminControllers.UserController;
 
-import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.PropertyType;
-import com.projectFuture.propertyRepairWebApp.enums.UserType;
 import com.projectFuture.propertyRepairWebApp.forms.UserForm;
-import com.projectFuture.propertyRepairWebApp.service.RepairService;
 import com.projectFuture.propertyRepairWebApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +21,6 @@ import java.util.Arrays;
 public class CreateUserController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private RepairService repairService;
 
     private static final String USER_FORM = "userForm";
 

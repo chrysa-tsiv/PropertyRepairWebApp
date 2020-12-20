@@ -1,9 +1,7 @@
 package com.projectFuture.propertyRepairWebApp.controller.adminControllers.RepairController;
 
-import com.projectFuture.propertyRepairWebApp.domain.Repair;
-import com.projectFuture.propertyRepairWebApp.domain.User;
+
 import com.projectFuture.propertyRepairWebApp.forms.RepairForm;
-import com.projectFuture.propertyRepairWebApp.model.RepairModel;
 import com.projectFuture.propertyRepairWebApp.model.UserModel;
 import com.projectFuture.propertyRepairWebApp.service.RepairService;
 import com.projectFuture.propertyRepairWebApp.service.UserService;
@@ -17,9 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.validation.Valid;
-import java.net.BindException;
 
 @Controller
 @RequestMapping("admin")

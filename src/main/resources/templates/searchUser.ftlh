@@ -17,16 +17,16 @@
 
 <div style="margin-top:1%;margin-left:2%;margin-right:2%;">
     <form action="/admin/search-user" method="get">
-    <div class="form-group">
+    <div class="form-group col-md-6">
         <label for="vat_create">VAT</label>
         <input type="text" class="form-control" id="vat_create" placeholder="VAT" name="vat" value="${vat!""}">
-    <div class="form-group">
+    </div>
+    <div class="form-group col-md-6">
         <label for="email_create">Email address</label>
         <input type="email" class="form-control" id="email_create" placeholder="Enter email" name ="email" value="${email!""}">
     </div>
-</div>
-<button type="submit" class="btn btn-primary">Search</button>
-</form>
+    <button type="submit" class="btn btn-primary">Search</button>
+    </form>
 </div>
 <!-- table that is only visible when vat or email has value and user has also value.Displays the result user of the search -->
 <#if vat?has_content || email?has_content>
