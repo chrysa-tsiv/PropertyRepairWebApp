@@ -33,7 +33,7 @@
         </thead>
         <tbody>
         <#list repairs as repair>
-        <tr>
+        <tr data-id="${repair.id}">
             <th scope="row">${repair?index+1}</th>
             <td>${repair.repairDate}</td>
             <td>${repair.status}</td>
@@ -45,7 +45,7 @@
             <td>
                 <ul class="list-group list-group-horizontal">
                     <li class="list-group-item list-group-item-warning"><a href="/admin/${repair.id}/edit-repair"><span data-feather="tool"></span></a></li>
-                    <li class="list-group-item list-group-item-danger"><a href="/admin/${repair.id}/delete-repair"><span data-feather="x"></span></a></li>
+                    <li class="list-group-item list-group-item-danger"><a href="#" data-toggle="modal" data-target="#removeRepair"><span data-feather="x"></span></a></li>
                 </ul>
             </td>
         </tr>
@@ -75,8 +75,8 @@
         <#list users as user>
         <tr data-id="${user.id}">
             <th scope="row">${user?index+1}</th>
-            <td>${user.firstName}</td>
-            <td>${user.lastName}</td>
+            <td id="${user.id}-fname">${user.firstName}</td>
+            <td id="${user.id}-lname">${user.lastName}</td>
             <td>${user.vat}</td>
             <td>${user.phone}</td>
             <td>${user.address}</td>
@@ -90,7 +90,7 @@
             <td>
                 <ul class="list-group list-group-horizontal">
                     <li class="list-group-item list-group-item-warning"><a href="/admin/${user.id}/edit-user"><span data-feather="tool"></span></a></li>
-                    <li class="list-group-item list-group-item-danger"><a href="/admin/${user.id}/delete-user"><span data-feather="x"></span></a></li>
+                    <li class="list-group-item list-group-item-danger"><a href="#" data-toggle="modal" data-target="#removeUser"><span data-feather="x"></span></a></li>
                 </ul>
             </td>
         </tr>
@@ -99,6 +99,8 @@
 </table>
 </div>
 
+<#include "partials/userModal.ftlh">
+<#include "partials/repairModal.ftlh">
 <#include "partials/feather-script.ftlh">
 
         </body>

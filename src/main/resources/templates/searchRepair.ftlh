@@ -54,7 +54,7 @@
                     </thead>
                     <tbody>
                         <#list repairs as repair>
-                                <tr>
+                                <tr data-id="${repair.id}">
                                     <th scope="row">${repair?index+1}</th>
                                     <td>${repair.repairDate}</td>
                                     <td>${repair.status}</td>
@@ -68,7 +68,7 @@
                                     <td>
                                         <ul class="list-group list-group-horizontal">
                                             <li class="list-group-item list-group-item-warning"><a href="/admin/${repair.id}/edit-repair"><span data-feather="tool"></span></a></li>
-                                            <li class="list-group-item list-group-item-danger"><a href="/admin/${repair.id}/delete-repair"><span data-feather="x"></span></a></li>
+                                            <li class="list-group-item list-group-item-danger"><a href="#" data-toggle="modal" data-target="#removeRepair"><span data-feather="x"></span></a></li>
                                         </ul>
                                     </td>
                                 </tr>
@@ -83,7 +83,9 @@
 No repairs found
 </div>
 </#if>
-    </#if>
+</#if>
+
+<#include "partials/repairModal.ftlh">
 
 </body>
 </html>
