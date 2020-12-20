@@ -4,7 +4,11 @@
     <#include "partials/headers.ftlh">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>

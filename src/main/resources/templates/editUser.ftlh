@@ -2,7 +2,13 @@
 <html>
 <head>
     <#include "partials/headers.ftlh">
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <style>
+        label.error {
+            margin-left: 3%;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +23,7 @@
     </nav>
 
                     <div style="margin-top:1%;margin-left:2%;margin-right:2%;">
-                        <form action="/admin/user/edit" method="post">
+                        <form id="edit-user" action="/admin/user/edit" method="post">
 
                             <input type="hidden" name="id" value="${userModel.id}">
 
@@ -128,7 +134,62 @@
                             <button class="btn btn-primary btn-lg mt-4" type="submit">Update</button>
                         </form>
                     </div>
-
+    <script>
+        jQuery(function ($)
+        {$('#edit-user').validate(
+            {
+                rules:
+                    {
+                        vat: {
+                            minlength: 9,maxlength: 9,digits: true
+                        },
+                        firstName: {
+                            required: true
+                        },
+                        lastName: {
+                            required: true
+                        },
+                        address: {
+                            required: true
+                        },
+                        phone: {
+                            minlength: 10,maxlength: 13,required: true
+                        },
+                        email: {
+                            email: true
+                        },
+                        propertyType:{
+                            required: true
+                        }
+                    },
+                messages:
+                    {
+                        vat: {
+                            minlength: 'ID should be more than 9 digits',
+                            maxlength: 'ID should be more than 9 digits',
+                            digits: 'ID should contain only digits'
+                        },
+                        firstName: {
+                            required: 'First Name is required'
+                        },
+                        lastName: {
+                            required: 'Last Name is required'
+                        },
+                        address: {
+                            required: 'Address is required'
+                        },
+                        phone: {
+                            required: 'Phone is required'
+                        },
+                        email: {
+                            email: 'Email format required'
+                        },
+                        propertyType:{
+                            required: 'Property Type is required'
+                        }
+                    }
+            });
+        });
+    </script>
 </body>
-
 </html>

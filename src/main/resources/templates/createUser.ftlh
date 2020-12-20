@@ -2,7 +2,12 @@
 
 <head>
     <#include "partials/headers.ftlh">
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <style>
+        label.error {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,7 +25,7 @@
 
 <!-- form -->
 <div style="margin-top:1%;margin-left:2%;margin-right:2%;">
-    <form action="/admin/create-user" name="userForm" method="post">
+    <form id="create-user" action="/admin/create-user" name="userForm" method="post">
     <div class="form-group col-md-6" >
         <label for="vat_create">VAT</label>
         <@spring.bind "userForm.vat"/>
@@ -124,5 +129,62 @@
 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
         </div>
+<script>
+    jQuery(function ($)
+    {$('#create-user').validate(
+        {
+            rules:
+                {
+                    vat: {
+                        minlength: 9,maxlength: 9,digits: true
+                    },
+                    firstName: {
+                        required: true
+                    },
+                    lastName: {
+                        required: true
+                    },
+                    address: {
+                        required: true
+                    },
+                    phone: {
+                        minlength: 10,maxlength: 13,required: true
+                    },
+                    email: {
+                        email: true
+                    },
+                    propertyType:{
+                        required: true
+                    }
+                },
+            messages:
+                {
+                    vat: {
+                        minlength: 'ID should be more than 9 digits',
+                        maxlength: 'ID should be more than 9 digits',
+                        digits: 'ID should contain only digits'
+                    },
+                    firstName: {
+                        required: 'First Name is required'
+                    },
+                    lastName: {
+                        required: 'Last Name is required'
+                    },
+                    address: {
+                        required: 'Address is required'
+                    },
+                    phone: {
+                        required: 'Phone is required'
+                    },
+                    email: {
+                        email: 'Email format required'
+                    },
+                    propertyType:{
+                        required: 'Property Type is required'
+                    }
+                }
+        });
+    });
+</script>
         </body>
         </html>

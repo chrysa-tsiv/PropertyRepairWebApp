@@ -3,7 +3,11 @@
 <head>
     <#include "partials/headers.ftlh">
     <#include "partials/datepicker-head.ftlh">
-
+    <style>
+        label.error {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -131,6 +135,48 @@
 </div>
 
 <#include "partials/feather-script.ftlh">
-
+<script>
+    jQuery(function ($)
+    {$('#create-user').validate(
+        {
+            rules:
+                {
+                    repairDate: {
+                        required: true
+                    },
+                    status: {
+                        required: true
+                    },
+                    cost: {
+                        required: true
+                    },
+                    address: {
+                        required: true
+                    },
+                    description: {
+                        required: true
+                    },
+                },
+            messages:
+                {
+                    repairDate: {
+                        required: 'Repair Date is required'
+                    },
+                    status: {
+                        required: 'Status is required'
+                    },
+                    cost: {
+                        required: 'Cost is required'
+                    },
+                    address: {
+                        required: 'Address is required'
+                    },
+                    description: {
+                        required: 'Description is required'
+                    },
+                }
+        });
+    });
+</script>
 </body>
 </html>
