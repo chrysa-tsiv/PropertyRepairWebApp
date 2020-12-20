@@ -153,7 +153,7 @@
                             required: true
                         },
                         phone: {
-                            minlength: 10,maxlength: 13,required: true
+                            minlength: 10,maxlength: 14,required: true
                         },
                         email: {
                             email: true
@@ -165,9 +165,9 @@
                 messages:
                     {
                         vat: {
-                            minlength: 'ID should be more than 9 digits',
-                            maxlength: 'ID should be more than 9 digits',
-                            digits: 'ID should contain only digits'
+                            minlength: 'VAT should be exactly 9 digits',
+                            maxlength: 'VAT should be exactly 9 digits',
+                            digits: 'VAT should contain only digits'
                         },
                         firstName: {
                             required: 'First Name is required'
