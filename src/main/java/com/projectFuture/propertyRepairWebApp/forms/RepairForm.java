@@ -1,7 +1,5 @@
 package com.projectFuture.propertyRepairWebApp.forms;
 
-import com.projectFuture.propertyRepairWebApp.enums.RepairType;
-import com.projectFuture.propertyRepairWebApp.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

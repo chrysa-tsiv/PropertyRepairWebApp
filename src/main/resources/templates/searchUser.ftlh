@@ -3,6 +3,12 @@
 <head>
     <#include "partials/headers.ftlh">
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,17 +22,17 @@
 </nav>
 
 <div style="margin-top:1%;margin-left:2%;margin-right:2%;">
-    <form action="/admin/search-user" method="get">
-    <div class="form-group">
-        <label for="vat_create">VAT</label>
-        <input type="text" class="form-control" id="vat_create" placeholder="VAT" name="vat" value="${vat!""}">
-    <div class="form-group">
+    <form id="search-user" action="/admin/search-user" method="get">
+    <div class="form-group col-md-6">
+        <label for="vat">VAT</label>
+        <input type="text" class="form-control" id="vat" placeholder="VAT" name="vat" value="${vat!""}">
+    </div>
+    <div class="form-group col-md-6">
         <label for="email_create">Email address</label>
         <input type="email" class="form-control" id="email_create" placeholder="Enter email" name ="email" value="${email!""}">
     </div>
-</div>
-<button type="submit" class="btn btn-primary">Search</button>
-</form>
+    <button type="submit" class="btn btn-primary">Search</button>
+    </form>
 </div>
 <!-- table that is only visible when vat or email has value and user has also value.Displays the result user of the search -->
 <#if vat?has_content || email?has_content>
@@ -46,9 +52,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>${user.firstName}</td>
-                        <td>${user.lastName}</td>
+                    <tr data-id="${user.id}">
+                        <td id="${user.id}-fname">${user.firstName}</td>
+                        <td id="${user.id}-lname">${user.lastName}</td>
                         <td>${user.vat}</td>
                         <td>${user.phone}</td>
                         <td>${user.address}</td>
@@ -62,7 +68,7 @@
                         <td>
                             <ul class="list-group list-group-horizontal">
                                 <li class="list-group-item list-group-item-warning"><a href="/admin/${user.id}/edit-user"><span data-feather="tool"></span></a></li>
-                                <li class="list-group-item list-group-item-danger"><a href="/admin/${user.id}/delete-user"><span data-feather="x"></span></a></li>
+                                <li class="list-group-item list-group-item-danger"><a href="#" data-toggle="modal" data-target="#removeUser"><span data-feather="x"></span></a></li>
                             </ul>
                         </td>
                     </tr>
@@ -76,5 +82,18 @@
         </div>
     </#if>
 </#if>
+
+<#include "partials/userModal.ftlh">
+
+<script>
+jQuery(function ($)
+{$('#search-user').validate(
+{rules:
+{vat: {minlength: 9,maxlength: 9,digits: true}},
+messages:
+{vat: {minlength: 'ID should be more than 9 digits',maxlength: 'ID should be more than 9 digits',digits: 'ID should contain only digits'}}
+});
+});
+</script>
 </body>
 </html>

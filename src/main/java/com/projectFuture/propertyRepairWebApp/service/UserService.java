@@ -1,10 +1,8 @@
 package com.projectFuture.propertyRepairWebApp.service;
 
-import com.projectFuture.propertyRepairWebApp.domain.User;
 import com.projectFuture.propertyRepairWebApp.enums.UserType;
 import com.projectFuture.propertyRepairWebApp.forms.UserForm;
 import com.projectFuture.propertyRepairWebApp.model.UserModel;
-
 import java.util.List;
 import java.util.Optional;
 
